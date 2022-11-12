@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: "Usuário",
+                labelText: "E-mail",
                 labelStyle: TextStyle(
                   color: Colors.black38,
                   fontWeight: FontWeight.w400,
