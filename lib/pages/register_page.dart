@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meuapp/pages/register_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +17,36 @@ class LoginPage extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               width: 128,
-              height: 128,
-              child: Image.asset('assets/iconeLogin.png'),
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Cadastro",
+                    style: TextStyle(
+                      fontSize: 30,
+                    ),
+                  ),
+                ],
+              ),
             ),
-
-            SizedBox(
-              height: 20,
-            ),
-            // Text('Login', style: TextStyle(fontSize: 20),textAlign: TextAlign.center),
             TextFormField(
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                labelText: "Nome",
+                labelStyle: TextStyle(
+                  color: Colors.black38,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                ),
+              ),
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: "E-mail",
                 labelStyle: TextStyle(
@@ -38,12 +57,41 @@ class LoginPage extends StatelessWidget {
               ),
               style: TextStyle(fontSize: 20),
             ),
-
             SizedBox(
               height: 10,
             ),
             TextFormField(
               keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                labelText: "cpf",
+                labelStyle: TextStyle(
+                  color: Colors.black38,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                ),
+              ),
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              keyboardType: TextInputType.phone,
+              decoration: InputDecoration(
+                labelText: "Telefone",
+                labelStyle: TextStyle(
+                  color: Colors.black38,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20,
+                ),
+              ),
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Senha",
@@ -55,19 +103,8 @@ class LoginPage extends StatelessWidget {
               ),
               style: TextStyle(fontSize: 20),
             ),
-            Container(
-              height: 40,
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                child: Text(
-                  "Recuperar Senha",
-                ),
-                onPressed: () {},
-              ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
+
+            SizedBox(height: 40,),
             Container(
                 height: 60,
                 alignment: Alignment.centerLeft,
@@ -85,13 +122,13 @@ class LoginPage extends StatelessWidget {
                     Radius.circular(5),
                   ),
                 ),
-                child: SizedBox.expand(
+                child: SizedBox(
                   child: TextButton(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Login",
+                          "Salvar",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -101,10 +138,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
+                      RegisterPage();
                     },
                   ),
                 )),
