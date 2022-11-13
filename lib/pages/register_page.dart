@@ -6,6 +6,26 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Cadastrar Usuário"),
+      ),
+      drawer: Drawer(
+          child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.green,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ],
+      )),
       body: Container(
         padding: EdgeInsets.only(
           top: 60,
@@ -103,8 +123,9 @@ class RegisterPage extends StatelessWidget {
               ),
               style: TextStyle(fontSize: 20),
             ),
-
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
             Container(
                 height: 60,
                 alignment: Alignment.centerLeft,
