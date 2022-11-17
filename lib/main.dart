@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'myapp.dart';
 
 void main(){
-  // runApp(const App());
+  runApp(const App());
 }
 
 
