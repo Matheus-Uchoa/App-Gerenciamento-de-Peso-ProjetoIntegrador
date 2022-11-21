@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meuapp/pages/login.dart';
+import 'package:meuapp/pages/login_gerente.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -54,27 +56,33 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 FittedBox(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 26,
-                      vertical: 16,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.orange),
-                    child: Row(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Text("ENTRAR",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                            )),
-                        SizedBox(
-                          width: 40,
-                        )
-                      ],
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 26,
+                        vertical: 16,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.orange),
+                      child: Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 40,
+                          ),
+                          Text("ENTRAR",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                              )),
+                          SizedBox(
+                            width: 40,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -86,7 +94,14 @@ class WelcomeScreen extends StatelessWidget {
                       child: Row(
                     children: <Widget>[
                       Text("Você é gerente?"),
-                      TextButton(onPressed: () {}, child: Text("Entrar")),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginGerente()));
+                          },
+                          child: Text("Entrar")),
                     ],
                   )),
                 )
