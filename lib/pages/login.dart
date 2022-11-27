@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meuapp/pages/home_aluno.dart';
 import 'package:meuapp/pages/recuperar_senha_email.dart';
 
 class LoginPage extends StatelessWidget {
@@ -131,7 +132,10 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      //redirecionar para pagina de menu do usuário
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeAluno()));
                     },
                   ),
                 )),

@@ -36,7 +36,7 @@ class ContainerHomeAluno extends StatelessWidget {
                         height: 100,
                         width: double.maxFinite,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(234, 231, 231, 1.0),
+                          color: Color.fromRGBO(250, 243, 243, 1.0),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
