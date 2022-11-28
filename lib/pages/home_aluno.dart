@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meuapp/componentes/container_treinos_aluno.dart';
-import '../componentes/container_home_aluno.dart';
-import '../componentes/container_metas_pendentes_home_aluno.dart';
+import 'package:meuapp/componentes/home_aluno_components/container_treinos_aluno.dart';
+import '../componentes/home_aluno_components/container_home_aluno.dart';
+import '../componentes/home_aluno_components/container_metas_pendentes_home_aluno.dart';
 
 class HomeAluno extends StatelessWidget {
   const HomeAluno({Key? key}) : super(key: key);
@@ -12,8 +12,8 @@ class HomeAluno extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.only(
           top: 30,
-          left: 20,
-          right: 20,
+          left: 10,
+          right: 10,
         ),
         child: ListView(
           children: <Widget>[
@@ -90,7 +90,7 @@ class HomeAluno extends StatelessWidget {
                       "Lista completa de treinos",
                     )),
               ],
-            )
+            ),
           ],
         ),
       ),

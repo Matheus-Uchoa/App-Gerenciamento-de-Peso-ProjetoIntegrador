@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meuapp/pages/home_aluno.dart';
 import 'package:meuapp/pages/recuperar_senha_email.dart';
-
+import '../componentes/home_aluno_components/HomeScreen.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -135,7 +135,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeAluno()));
+                              builder: (context) => HomeScreen()));
                     },
                   ),
                 )),
