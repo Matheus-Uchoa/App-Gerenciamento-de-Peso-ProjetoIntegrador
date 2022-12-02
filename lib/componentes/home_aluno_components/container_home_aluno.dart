@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meuapp/pages/calculo_imc.dart';
 
 class ContainerHomeAluno extends StatelessWidget {
   const ContainerHomeAluno({Key? key}) : super(key: key);
@@ -88,7 +89,12 @@ class ContainerHomeAluno extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomePage()));
+                  },
                 ),
               ),
             ],

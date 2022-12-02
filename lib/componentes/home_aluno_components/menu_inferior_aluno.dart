@@ -12,9 +12,12 @@ class MenuInferior extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: _telas[_indiceAtual],
+
       bottomNavigationBar: BottomNavigationBar(
+
         currentIndex: _indiceAtual,
         onTap: onTabTapped,
         items: [
