@@ -29,7 +29,7 @@ class HomeAluno extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Olá, Usuário",
+                  "Olá, Aluno",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 Text(
