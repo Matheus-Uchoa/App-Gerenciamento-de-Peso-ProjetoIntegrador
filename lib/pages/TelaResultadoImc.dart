@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:principal/main.dart';
+import './calculo_imc.dart';
 //import 'package:principal/calculoimc.dart';
 
 class TelaResultadoImc extends StatefulWidget {
