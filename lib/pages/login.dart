@@ -1,14 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:meuapp/pages/home_aluno.dart';
+import 'package:meuapp/componentes/home_instrutor_components/home_screen_instrutor.dart';
 import 'package:meuapp/pages/recuperar_senha_email.dart';
 import '../componentes/home_aluno_components/HomeScreen.dart';
-class LoginPage extends StatelessWidget {
+import 'package:firebase_auth/firebase_auth.dart';
+
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _firebaseAuth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,elevation: 0,),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Container(
         padding: EdgeInsets.only(
           top: 60,
@@ -42,8 +57,6 @@ class LoginPage extends StatelessWidget {
               height: 128,
             ),
 
-
-
             // Text('Login', style: TextStyle(fontSize: 20),textAlign: TextAlign.center),
             Material(
               elevation: 5,
@@ -53,6 +66,7 @@ class LoginPage extends StatelessWidget {
                   color: Colors.white54,
                 ),
                 child: TextFormField(
+                  controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -79,6 +93,7 @@ class LoginPage extends StatelessWidget {
                   color: Colors.white54,
                 ),
                 child: TextFormField(
+                  controller: _passwordController,
                   keyboardType: TextInputType.text,
                   obscureText: true,
                   decoration: InputDecoration(
@@ -132,10 +147,7 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                      login();
                     },
                   ),
                 )),
@@ -156,5 +168,39 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  login() async {
+    try {
+      UserCredential userCredential =
+          await _firebaseAuth.signInWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text);
+
+      if (userCredential != null) {
+        if (_emailController.toString().contains("aluno")) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        } else if (_emailController.toString().contains("instrutor")) {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => HomeScreenInstrutor()));
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Usuário não encontrado"),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Sua senha está errada"),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
   }
 }
