@@ -11,6 +11,7 @@ class MenuInferiorInstrutor extends State<HomeScreenInstrutor> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: _telas[_indiceAtual],
       bottomNavigationBar: BottomNavigationBar(
